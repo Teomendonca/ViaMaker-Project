@@ -1,0 +1,10 @@
+.Tile{
+    color: #ffffffa6 ;
+}
+.Tile:hover{
+    color: #f4f4f4f4;
+    cursor: pointer;
+}
+.sideMenu{
+    height: 100%;
+}
