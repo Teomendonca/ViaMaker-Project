@@ -4,5 +4,6 @@
     text-align: left;
 }
 #Card{
-    width: 20%;
+    width: 20rem;
+    margin: 1rem;
 }

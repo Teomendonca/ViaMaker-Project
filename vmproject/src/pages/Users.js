@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import './css/Users.css';
 import { Layout, List } from "antd";
 
@@ -9,14 +10,12 @@ const { Header, Content } = Layout;
 export default function Users() {
     const [user, setUser] = useState([]);
 
-    async function fetchData(){
-       await fetch('https://jsonplaceholder.typicode.com/users')
-       .then(response => response.json())
-       .then(response=>setUser([response]))
-       .finally(()=>console.log(user))
-    }
-
-    useEffect(() => {fetchData() },[]);
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then((response) => {
+                setUser(response.data);
+            });
+    }, []);
     return (
         <Layout>
             <Header className='Title'><h2>Usuários</h2></Header>
@@ -24,14 +23,15 @@ export default function Users() {
                 <List
                     itemLayout="horizontal"
                     dataSource={user}
-                    renderItem={(id,name)=>(
-                        <List.Item>
+                    renderItem={(user)=>(
+                        <List.Item className="Users">
                             <List.Item.Meta
                             title={user.name}
                             />
                         </List.Item>
                     )}
                 />
+
             </Content>
         </Layout>
     );

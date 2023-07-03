@@ -1,7 +1,7 @@
 import './SideMenu.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu,  } from 'antd';
 
 export default function SideMenu() {
     const navigate = useNavigate();

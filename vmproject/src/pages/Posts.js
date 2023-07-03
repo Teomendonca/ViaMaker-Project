@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./css/Post.css";
 import { Layout, Card, Row, Col } from "antd";
 
@@ -7,13 +8,12 @@ const { Header, Content } = Layout;
 export default function Posts() {
     const [post, setPost] = useState([]);
 
-    async function fetchData() {
-        await fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
-            .then((response) => setPost([response]))
-            .finally(()=>console.log(post))
-    }
-    useEffect(() => { fetchData() },[]);
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then((response)=>{
+                setPost(response.data);
+            });
+    }, []);
     return (
         <Layout>
             <Header className='Title'><h2>Posts</h2></Header>

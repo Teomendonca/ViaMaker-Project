@@ -1,5 +1,7 @@
+html,body{
+  height: 100%;
+}
 .App {
-  text-align: center;
   height: 100%;
 }
 
@@ -33,15 +35,26 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-.SideMenu{
+
+.SideMenu {
   height: 100%;
   display: flex;
+  text-align: center;
+ 
 
 }
-body, html{
+
+.Layout{
+  display: flex;
   height: 100%;
+  text-align: center;
+
+}
+.site-layout{
+  margin-left: 200;
 }
